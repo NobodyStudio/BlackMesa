@@ -1,14 +1,15 @@
 <?php
-
+	define('BASEPATH', true);
     require_once('core/core.php');
+    require_once(CORE. 'autoload.php');
     if (isset($_GET['view'])){
-        if(file_exists(CONTROLLERS . strtolower($_GET['view']) . 'Controller.php')){
-            require_once(CONTROLLERS . strtolower($_GET['view']) . 'Controller.php');
+        if(file_exists(CORE . ucfirst(strtolower($_GET['view'])) . '.php')){
+            require_once(CORE . ucfirst(strtolower($_GET['view'])) . '.php');
 	    }else{
-		require_once(VIEWS . 'errorPage404.phtml');
+			header('Location:?view=router&action=error404');
 	    }   	
 	}else{
-		require_once(CONTROLLERS. 'indexController.php');
+		header('Location:?view=router&action=index');
 	}
 	
 ?>

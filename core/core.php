@@ -17,7 +17,7 @@
     define('BD_SERVER', 'localhost');
     define('BD_NAME', 'tradearte_studio');
     define('BD_USER', 'elalexoh');
-    define('BD_PASSWORD', '');
+    define('BD_PASSWORD', 'bytfLt6tcPvs2DwK');
     define('BD_PORT', '3306');
     
     /////////////////////

@@ -1,13 +1,75 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: Comforta-Regular;
+  }
+
+main {
+    flex: 1 0 auto;
+  }
+#animate-area	{ 
+	/*width: 560px; */
+	/*height: 400px; */
+	background-image: url(/view/img/sayagata.png);
+	background-position: 0px 0px;
+	background-repeat: repeat;
+
+	animation: animatedBackground 40s linear infinite;
+}
 @keyframes animatedBackground {
 	from { background-position: 0 0; }
 	to { background-position: 100% 0; }
 }
-#animate-area	{ 
-	/*width: 560px; */
-	/*height: 400px; */
-	background-image: url(bg-clouds.png);
-	background-position: 0px 0px;
-	background-repeat: repeat-x;
-
-	animation: animatedBackground 40s linear infinite;
+.full-width{
+  max-width:100%;
+  margin: 0 auto;
+  position: relative;
 }
+.full-width-content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+#brandLogo {
+    margin-top: 10px;
+    width: 50px; 
+    height: 50px; 
+    /*background: #428bca;*/
+}
+.modal-login{
+  max-width : 40%;
+}
+.icon{
+  width: 35px;
+}
+.error-icon{
+  width:50%;
+}
+@font-face {
+    font-family: Comforta-Regular;
+    src: url(/view/fonts/comforta/Comfortaa-Regular.ttf);
+}
+@font-face{
+    font-family: pacifico;
+    src: url(/view/fonts/Pacifico.ttf);
+}
+.pacifico{
+  font-family: pacifico;
+}
+.Dlogin h4{
+  margin-top: 15%;
+}
+/*.test{*/
+  /*margin-top: -5%;*/
+  /*margin-left: -10%;*/
+  /*width:  220px; */
+/*  height:  100%; */
+/*  min-height:  100%; */
+  /*position:  relative; */
+  /*background-image: url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");*/
+/*  background-size:  cover;*/
+  /*border-top-left-radius:  4px; */
+  /*border-bottom-left-radius:  4px; */
+/*}*/
