@@ -2,13 +2,13 @@
     /**
      * Update/Select/Drop/Insert
      */
-    class Crud extends model
-    {
+    class Crud extends model{
+        
         public function __construct(){
-            parent::__construct();//ejecutando el constructor de model
+            parent::__construct(); //Ejecutando el constructor de la clase Model (Conexion)
         }
-        public function consultar($tabla, $campos, $postCondicion)
-        {
+        
+        public function consultar($tabla, $campos, $postCondicion){
             if (empty($campos)) {
                 $campos="*";
             } else {
@@ -21,27 +21,31 @@
                 $postCondicion="WHERE ".$postCondicion;
             }
             
-            
             $sql = "SELECT ".$campos." FROM ".$tabla." ".$postCondicion;
-            // $sql = "SELECT * FROM users ";
-            //echo $sql;
             try {
-                foreach($this->conexion->query($sql) as $fila){
-                    echo $fila['username']." ".$fila['email']." ".$fila['password']." ";
+                if ($this->conexion->query($sql)) {
+                    echo "Login Exitoso";
+                }else{
+                    // header("Location: ?view=router&action=index");
+                    echo "La cuenta no existe";
                 }
+                // foreach($this->conexion->query($sql) as $fila){
+                //     // echo $fila['username']." ".$fila['email']." ".$fila['password']." ";
+                //     echo "Login Exitoso";
+                // }
             } catch (Exception $e) {
                 echo $e;
             }
         }
-        public function insertar()
-        {
+        
+        public function insertar(){
+            
             echo "hola soy insertar";
         }
-        public function modificar()
-        {
-            // code...
+        public function modificar(){
+            echo "hola soy modificar";   
         }
-        public function login($clave, $valor){
-            $this->consultar('users','','(email="'.$valor[0].'" or username="'.$valor[0].'") and password='.$valor[1].'');
+        public function login($valor){
+            $this->consultar('usuarios','','(email="'.$valor[1].'" or username="'.$valor[1].'") and password='.$valor[2].'');
         }
     }

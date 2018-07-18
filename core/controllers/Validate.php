@@ -21,13 +21,26 @@ class Validate
     
     public function validacion($valor, $clave){
         // var_dump($valor);
-        for ($i = 0; $i < count($valor); $i++) {
+        $found = false;
+        for ($i = 1; $i < count($valor); $i++) {
             // print_r($clave);
             if (strlen($valor[$i])<=1) {
-                echo "<script>alert('".$clave[$i]." Esta Vacio');</script>";
+                // echo "<script>alert('".$clave[$i]." Esta Vacio');</script>";
                 // echo " ".$clave[$i]."esta vacio ";
+             }else{
+                //  echo "hola";
+                // $found = true;
+                // if ($found != false) {
+                //     $limpio = str_replace(" ", "", $clave[0]);
+                //     // echo " ".$valor[0]." ";
+                //     $bd= new Crud();
+                //     $bd->$limpio($valor);
+                //     break;
+                // }
             }
         }
+        // $bd= new Crud();
+        // $bd->$limpio($valor);
 
         // for ($i = 0; $i < count($valor); $i++) {
         //      if (!empty($valor)) {
@@ -50,4 +63,3 @@ class Validate
     }
     
 }
-$obj = new Validate();
