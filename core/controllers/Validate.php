@@ -1,33 +1,60 @@
 <?php 
 /**
- * Recibe las peticiones hechas en la vista y se las pasa al modelo
+ * Recibe las peticiones hechas en la vista, las valida y se las pasa al modelo
  */
+//  header('Content-Type: text/html; charset=utf-8');
 class Validate
 {
     public function __construct(){
         $i=0;
-        foreach ($_POST as $k =>$v){ 
-            
-            $clave[$i]=$clave[$i].$k." ";
-            $valor[$i]=$valor[$i].$v." ";
+        foreach ($_POST as $k =>$v){
+            $clave[$i]=$clave[$i].$k."";
+            $valor[$i]=$valor[$i].$v."";
             $i=$i+1;
             
         }
-
+        
         $this->validacion($valor, $clave); 
         // $bd= new Crud();
         // $bd->login($clave, $valor);
     }
     
     public function validacion($valor, $clave){
-        // var_dump($valor);
-        for ($i = 0; $i < count($valor); $i++) {
-            // print_r($clave);
-            if (strlen($valor[$i])<=1) {
-                echo "<script>alert('".$clave[$i]." Esta Vacio');</script>";
-                // echo " ".$clave[$i]."esta vacio ";
+        for ($i = 1; $i < count($valor); $i++) {
+            if (strlen($valor[$i])>0) {
+                $empty = "false.";
+            }else{
+                $empty = "true.";
+                break;
             }
         }
+            print_r($empty);
+            if ($empty!="false.") {
+                echo "existe un campo vacio";
+            }else{
+                $bd= new Crud();
+                $bd->login($clave, $valor);
+            }
+        // $found = false;
+        // for ($i = 1; $i < count($valor); $i++) {
+        //     // print_r($clave);
+        //     if (strlen($valor[$i])<=1) {
+        //         echo "<script>alert('".$clave[$i]." Esta Vacio');</script>";
+        //         // echo " ".$clave[$i]."esta vacio ";
+        //      }else{
+        //          echo "hola";
+        //         // $found = true;
+        //         // if ($found != false) {
+        //         //     $limpio = str_replace(" ", "", $clave[0]);
+        //         //     // echo " ".$valor[0]." ";
+        //         //     $bd= new Crud();
+        //         //     $bd->$limpio($valor);
+        //         //     break;
+        //         // }
+        //     }
+        // }
+        // $bd= new Crud();
+        // $bd->$limpio($valor);
 
         // for ($i = 0; $i < count($valor); $i++) {
         //      if (!empty($valor)) {
@@ -48,6 +75,5 @@ class Validate
         //     echo "nope";
         // }
     }
-    
 }
-$obj = new Validate();
+$asd = new Validate();

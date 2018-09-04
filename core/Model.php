@@ -16,18 +16,4 @@
                 return null;
             }
         }
-        
-        // public function consultar(){
-        //     if (empty($campo)) {
-        //         $query="Select * FROM ".$tabla;
-        //     }else{
-        //         $query="Select ".$campo." FROM ".$tabla;
-        //     }
-        //     foreach($conexion->query("SELECT * FROM users") as $fila) {
-        //         echo $fila['username'].' | ';
-        //         //  print_r($fila);
-        //     }
-            
-        // }
-
     }
